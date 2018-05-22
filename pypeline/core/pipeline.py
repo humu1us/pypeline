@@ -1,11 +1,16 @@
 from multiprocessing import Process
 from multiprocessing import Manager
 from pypeline.core.baseunit import BaseUnit
+from pypeline.core.vardrawer import VarDrawer
 
 
 class Pipeline:
     def __init__(self, units=[]):
+        self.__drawer = VarDrawer()
         self.__units = units
+
+        for unit in self.__units:
+            unit.set_drawer(self.__drawer)
 
     def __is_structure_good(self):
         if self.__units[0].unit_type() != BaseUnit.UNIT_SRC:
