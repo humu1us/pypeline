@@ -10,16 +10,19 @@ class BaseUnit:
     UNIT_DST = 1
     UNIT_PROC = 2
 
-    def __init__(self, ctx, unit_type, drawer=None):
+    def __init__(self, ctx, unit_type):
         self.__context = ctx
         self.__type = unit_type
-        self._drawer = drawer
+        self.__drawer = None
 
     def context_type(self):
         return self.__context
 
     def unit_type(self):
         return self.__type
+
+    def set_drawer(self, drawer):
+        self.__drawer = drawer
 
     def run(self):
         NotImplementedError("Error, this is an abstract method")

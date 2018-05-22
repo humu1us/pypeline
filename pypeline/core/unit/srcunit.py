@@ -5,5 +5,5 @@ from pypeline.core.baseunit import BaseUnit
 
 
 class SRCUnit(BaseUnit):
-    def __init__(self, ctx, drawer=None):
-        super().__init__(ctx, BaseUnit.UNIT_SRC, drawer)
+    def __init__(self, ctx):
+        super().__init__(ctx, BaseUnit.UNIT_SRC)

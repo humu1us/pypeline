@@ -7,8 +7,8 @@ from pypeline.core.baseunit import BaseUnit
 
 
 class ProcessUnit(BaseUnit):
-    def __init__(self, ctx, drawer=None):
-        super().__init__(ctx, BaseUnit.UNIT_PROC, drawer)
+    def __init__(self, ctx):
+        super().__init__(ctx, BaseUnit.UNIT_PROC)
 
     def run(self, data, return_data):
         NotImplementedError("Error, this is a abstract method")

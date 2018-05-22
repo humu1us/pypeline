@@ -6,8 +6,8 @@ from pypeline.core.baseunit import BaseUnit
 
 
 class DSTUnit(BaseUnit):
-    def __init__(self, ctx, drawer=None):
-        super().__init__(ctx, BaseUnit.UNIT_DST, drawer)
+    def __init__(self, ctx):
+        super().__init__(ctx, BaseUnit.UNIT_DST)
 
     def run(self, data):
         NotImplementedError("Error, this is an abstract method")
