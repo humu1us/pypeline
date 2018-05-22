@@ -10,5 +10,5 @@ class ProcessUnit(BaseUnit):
     def __init__(self, ctx, drawer=None):
         super().__init__(ctx, BaseUnit.UNIT_PROC, drawer)
 
-    def run(self, data):
+    def run(self, data, return_data):
         NotImplementedError("Error, this is a abstract method")
