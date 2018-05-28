@@ -1,3 +1,4 @@
 green>=2, <3
 testfixtures>=5, <6
 pycodestyle
+pandas>=0.22.0, <1
