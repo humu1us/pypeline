@@ -1,5 +1,4 @@
 from unittest import TestCase
-from pandas import DataFrame
 from pypeline.core.vardrawer import VarDrawer
 
 
@@ -19,8 +18,6 @@ class TestVarDrawer(TestCase):
         self.assertIsNone(drawer.get_var(test_value["name"]))
 
     def test_multiple_var_drawer(self):
-        df = DataFrame([[1, 2, 3], [4, 5, 6], [7, 8, 9]],
-                       columns=["A", "B", "C"])
         test_values = [
             {
                 "name": "string",
@@ -31,8 +28,13 @@ class TestVarDrawer(TestCase):
                 "value": [1, 2, 3, 4, 5]
             },
             {
-                "name": "dataframe",
-                "value": df
+                "name": "dict",
+                "value": {
+                    "list": [10, 10000, 50],
+                    "tuple": (1, 2, 3, 4, 5),
+                    "dict": {"a": 1, "b": 2},
+                    "int": 1234
+                }
             }
         ]
 
@@ -41,11 +43,6 @@ class TestVarDrawer(TestCase):
             drawer.set_var(d["name"], d["value"])
 
         for d in test_values:
-            if d["name"] == "dataframe":
-                self.assertEqual(drawer.get_var(d["name"]).sum().sum(),
-                                 df.sum().sum())
-                continue
-
             self.assertEqual(drawer.get_var(d["name"]), d["value"])
 
         for d in test_values:
